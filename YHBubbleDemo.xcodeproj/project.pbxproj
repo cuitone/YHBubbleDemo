@@ -14,6 +14,7 @@
 		A5920AF61BA2B4EB00B65B3F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5920AF51BA2B4EB00B65B3F /* Images.xcassets */; };
 		A5920AF91BA2B4EB00B65B3F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5920AF71BA2B4EB00B65B3F /* LaunchScreen.xib */; };
 		A5920B051BA2B4EB00B65B3F /* YHBubbleDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5920B041BA2B4EB00B65B3F /* YHBubbleDemoTests.m */; };
+		A5920B101BA2B52D00B65B3F /* HSDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5920B0F1BA2B52D00B65B3F /* HSDeviceModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		A5920AFE1BA2B4EB00B65B3F /* YHBubbleDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YHBubbleDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5920B031BA2B4EB00B65B3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5920B041BA2B4EB00B65B3F /* YHBubbleDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHBubbleDemoTests.m; sourceTree = "<group>"; };
+		A5920B0E1BA2B52D00B65B3F /* HSDeviceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSDeviceModel.h; sourceTree = "<group>"; };
+		A5920B0F1BA2B52D00B65B3F /* HSDeviceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSDeviceModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				A5920AED1BA2B4EB00B65B3F /* AppDelegate.m */,
 				A5920AEF1BA2B4EB00B65B3F /* ViewController.h */,
 				A5920AF01BA2B4EB00B65B3F /* ViewController.m */,
+				A5920B0E1BA2B52D00B65B3F /* HSDeviceModel.h */,
+				A5920B0F1BA2B52D00B65B3F /* HSDeviceModel.m */,
 				A5920AF21BA2B4EB00B65B3F /* Main.storyboard */,
 				A5920AF51BA2B4EB00B65B3F /* Images.xcassets */,
 				A5920AF71BA2B4EB00B65B3F /* LaunchScreen.xib */,
@@ -221,6 +226,7 @@
 			files = (
 				A5920AF11BA2B4EB00B65B3F /* ViewController.m in Sources */,
 				A5920AEE1BA2B4EB00B65B3F /* AppDelegate.m in Sources */,
+				A5920B101BA2B52D00B65B3F /* HSDeviceModel.m in Sources */,
 				A5920AEB1BA2B4EB00B65B3F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

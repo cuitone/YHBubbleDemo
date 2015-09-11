@@ -7,16 +7,37 @@
 //
 
 #import "HSDeviceModel.h"
-
-typedef NS_ENUM(NSInteger, HSShowMsgType) {
-    HSShowMsgTypeAlert = 0,
-    HSShowMsgTypeHud
-};
+#import "HSDeviceAlarmModel.h"
 
 @implementation HSDeviceModel
 
 - (void)parseAlartMsgWith:(NSString *)instruction
 {
+    HSShowMsgType showMsgType = HSShowMsgTypeHud;
+    NSString *deviceInfo = [instruction substringWithRange:NSMakeRange(instruction.length-4, 4)];
+    NSString *defenseId = [deviceInfo substringWithRange:NSMakeRange(0, 2)];
+    
+    NSString *detectorCode = [deviceInfo substringWithRange:NSMakeRange(3, 2)];
+    
+    NSString *detectorName = [self detectorNameWithDetectorCode:detectorCode];
+    NSString *alarmMsg = [instruction substringWithRange:NSMakeRange(2,instruction.length-5-2)];
+    
+    if ([deviceInfo isEqualToString:@"0000"]) {
+        showMsgType = HSShowMsgTypeAlert;
+    } else if(defenseId.integerValue >= 1 && defenseId.integerValue <= 28 && detectorCode.integerValue >= 1 && detectorCode.integerValue <= 16) {
+        showMsgType = HSShowMsgTypeAlert;
+    } else if(defenseId.integerValue >= 0 && defenseId.integerValue <= 24  && detectorCode.integerValue == 42) {
+        showMsgType = HSShowMsgTypeAlert;
+    } else {
+        showMsgType = HSShowMsgTypeHud;
+    }
+    
+    HSDeviceAlarmModel *alertModel = [[HSDeviceAlarmModel alloc] init];
+    alertModel.showMsgType = showMsgType;
+    alertModel.alertMsg = alarmMsg;
+    alertModel.detectorName = detectorName;
+    
+    //显示报警信息
     
 }
 
@@ -24,7 +45,6 @@ typedef NS_ENUM(NSInteger, HSShowMsgType) {
 
 - (NSString *)detectorNameWithDetectorCode:(NSString *)detectorCode
 {
-    
     NSString *detectorName =@"";
     if (detectorCode.integerValue > 1 && detectorCode.integerValue < 16) {
         NSDictionary *detectorNames = @{@"01":HSLocalisze(@"燃气"),
@@ -45,7 +65,6 @@ typedef NS_ENUM(NSInteger, HSShowMsgType) {
                                         @"16":HSLocalisze(@"有线探测")};
         detectorName = detectorNames[detectorCode];
     }
-    
     return detectorName;
 }
 
